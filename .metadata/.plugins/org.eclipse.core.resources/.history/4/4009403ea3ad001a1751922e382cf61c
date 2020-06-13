@@ -1,0 +1,69 @@
+<%-- 
+    Document   : Discriminacion
+    Created on : 11 jun 2020, 14:32:59
+    Author     : root
+--%>
+<%@page import="java.util.*"%>
+<%@ page import="java.io.*" %>
+<%@ page import="java.sql.*"%>
+<%@ page import="web.mysql.connection.*"%>
+
+<html><body>
+
+<%!
+String nombre = "hola";
+String password ="";
+int TipoUsuario= 0;
+%>
+<%
+nombre=request.getParameter("usuario");
+password=request.getParameter("contrasena");
+TipoUsuario=Integer.parseInt(request.getParameter("TipoUsuario"));
+%>
+<%
+connectionMysql conMysql = new connectionMysql();
+
+%>
+<%
+String sql = "SELECT nom_usu FROM `CUsuario` WHERE nom_usu LIKE '"+nombre+"' && password LIKE '"+password+"' && id_tipo = "+TipoUsuario;
+
+boolean exist = conMysql.exist(sql);
+
+                            if(exist){
+                            	out.println("<br> Exist");
+                            }else{
+                            	out.println("<br> No exist");
+                            }
+/*boolean resp = rs.next(); 
+if (Boolean.toString(rs.next()).equals("true") ){
+out.println("<br> Holamundo");	
+}else if(Boolean.toString(rs.next()).equals("false")  ){
+out.println("<br> Holamundo2");	
+}else{
+out.println("<br> El usuario y/o password no existen");
+}
+int i = 0;
+while (resp) {
+i++;
+	
+
+    
+}
+out.println("<br> El usuario y/o password no existen" + i);				
+			 /*if (rs.next() && TipoUsuario == 2){
+                            response.sendRedirect("/principal.html");
+                        }
+                        else{
+				
+		
+                         }*/
+
+
+	
+rs.close();
+sentencia.close();
+connection.close();
+%>
+
+<br><br><br>
+</body></html>

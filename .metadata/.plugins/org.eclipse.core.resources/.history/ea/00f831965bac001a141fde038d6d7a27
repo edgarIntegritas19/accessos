@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+ <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="estilox.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+   <h1>BIOWORLD<br>Mundo con salud</h1>
+
+    <form ACTION=discriminacion.jsp METHOD="POST">
+
+	<table border="0" align="center">
+	<tr>
+		<td width="50%"><br></td> <td width="50%"><br></td>
+	</tr>
+	<tr>
+            <td colspan="2"><center><img src ="images/logotipo.jpg" alt="Logo BIOWORLD" border="0"></center></td>
+	</tr>
+	<tr>
+		<td>
+			<label>USUARIO: </label>
+			<input type="text" name="usuario" style="width:100px;padding-left:0px;background-color: TRANSPARENT;">
+		</td>
+		<td>
+			<label>CONTRASEÑA: </label>
+			<input type="text" name="contrasena" style="width:100px;padding-left:0px;background-color: TRANSPARENT;">
+		</td>
+                <td>
+			<label>Tipo de usuario: </label>
+			  <select name="TipoUsuario">
+                            <option value= "1" >Administrador</option>
+                            <option value= "2" >Vendedor</option>
+                            </select>
+		</td>
+	</tr>
+	<tr>
+		<td><br></td> <td><br></td>
+	</tr>
+	<tr>
+		<td colspan="2" align ="center">
+		<input type="submit" value="ACEPTAR" class="boton" >
+		</td>
+	</tr>
+	</table>
+    </form>
+
+	</body>
+</html>

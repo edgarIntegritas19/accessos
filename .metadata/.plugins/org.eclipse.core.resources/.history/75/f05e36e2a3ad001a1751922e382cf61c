@@ -1,0 +1,44 @@
+<%-- 
+    Document   : Discriminacion
+    Created on : 11 jun 2020, 14:32:59
+    Author     : root
+--%>
+<%@page import="java.util.*"%>
+<%@ page import="java.io.*" %>
+<%@ page import="java.sql.*"%>
+<%@ page import="web.mysql.connection.*"%>
+
+<html><body>
+
+
+String nombre = "hola";
+String password ="";
+int TipoUsuario= 0;
+
+nombre=request.getParameter("usuario");
+password=request.getParameter("contrasena");
+TipoUsuario=Integer.parseInt(request.getParameter("TipoUsuario"));
+
+connectionMysql conMysql = new connectionMysql();
+
+
+String sql = "SELECT nom_usu FROM `CUsuario` WHERE nom_usu LIKE '"+nombre+"' && password LIKE '"+password+"' && id_tipo = "+TipoUsuario;
+boolean exist = conMysql.exist(sql);
+if(exist && TipoUsuario == 1){
+    response.sendRedirect("/usuario.html");
+}else if(exist && TipoUsuario == 2){
+    response.sendRedirect("/admin.html");
+}else{
+	out.println("<br> No existe usuario");	
+}
+
+	
+
+
+
+	
+
+%>
+
+<br><br><br>
+</body></html>
